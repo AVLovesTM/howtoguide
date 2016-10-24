@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+       <head>
+                <meta charset="UTF-8">
+                <link href="style.css" rel="stylesheet">
+                <title>How-To Guide For Express' API</title>
+        </head>
+
+        <body>
+                <div class="topmost-nav-bar">
+                        <a class="nav-link" href="howTo.html">Home</a>
+                        <a class="nav-link" href="1_general.html">1. General Info</a>
+                        <a class="nav-link" href="2_applicationObj.html">2. Application Object</a>
+                        <a class="nav-link" href="3_requestObj.html">3. Request Object</a>
+                        <a class="nav-link" href="4_responseObj.html">4. Response Object</a>
+                </div>
+
+                <div>
+                        <h1 class="main-head">1. Abstract View</h1>
+                </div>
+
+                <div class="entry-div">
+                        <h2 class="entry-head">Understanding API's, Frameworks and Routing/Middleware</h2>
+                        <h3>API's:</h3>
+                        	<ul class="entry">
+					<li><strong>Application Programming Interfaces</strong> are collections or libraries of software tools (interfaces) in which the user of the tools has access to the functionality of the tools, but is not required to understand the implementation details. In fact, the details are usually hidden intentionally, as a means to control code.</li>
+					<li>The purpose of API's is to provide the components so that a user can assemble them specific to their own needs to build their intended system more easily. </li>
+						<ul>
+							<li>The interfaces of the API describe the functions or expected behavior of the tools</li>
+							<li>The implementation of the library describes the constraints or rules (components) of the tools themselves.</li>
+							<li>A single API can be composed of mulitple libraries (implementations) as long as the functionality of the tools is consistent with the behavior that is expected from them.</li>
+						</ul>
+					<li>These software tools include: routines/functions, classes, protocols (such Hyper Text Transfer Protocols), etc.</li>
+					<li>Web API's supply tools for connecting (<strong>routing</strong>) endpoints or paths with <strong>request</strong> and <strong>response</strong> components of the HTTP.</li>
+					<li>Web API's basically enable making HTTP requests and handling HTTP responses from either a server or a web browser.</li>
+					<li>API's are related to <strong>frameworks</strong> as is discussed next.</li> 
+					
+				</ul>
+                        <h3>Frameworks: </h3>                                              
+                        	<ul class="entry">
+					<li>Frameworks are even more abstract, as they are collections of API's</li>
+					<li>Frameworks, therefore, bring together (bind and implement) several expected behaviors (API specific functionalities) as a means to facilitate a more complex functionality. 
+					<li>Like individual API's, frameworks are intended to flexible (relatively generic) so that they can be reused for different projects. 
+					<li>Unlike individual API's, the program control is managed by the framework itself. In other words, the framework is responsible for calling upon certain tools, and does so <strong>within</strong> the framework and thus at times dictated by the framework</li>
+				</ul>
+			<h3>Routing/Middleware:</h3>
+				<ul class="entry">
+					<li><strong>Routing</strong> is related to a web API's ability to connect <strong>endpoints</strong> to specific <strong>paths</strong> as a response to a client request.</li>
+						<li>Routing describes connecting a path or route (a URL) to a given response based on a client request.
+					<ul>
+						<li>A client requests a specific resource (path) via specific HTTP method. 
+						<li>A route determines a response to a client request based on the <strong> HTTP request method</strong> (GET, POST, etc.) and the path requested.
+					</ul>
+					<li><strong>Middleware</strong> is the specific response (code) determined by a route.
+					<li>Middleware is software that connects multiple components, usually acting as a messaging system, by sitting in between two entities. 
+				</ul>
+			<h3>Express in context:</h3>
+				<ul class="entry">
+					<li>Express is a <strong>server framework</strong> used to build web applications.</li>
+					<li>As a framework, Express is composed of multiple API's.</li>
+						<ul>
+							<li>One component API of Express is the Node HTTP/HTTPs API.</li>
+							<li>Therefore, Express has access to the req and res objects (more on those obects in the following sections) that extend from Node's HTTP/HTTPs API.</li>
+							<li>On top of that, Express is built on the whole Node API, and therefore, has access to Node's API tools.</li>
+						</ul> 
+					<li>Middleware in Express are response handlers for client requests and is determined by the specific route.</li>
+					<li>Middleware in Express are implemented as <strong>functions</strong> (with access to the response and request objects extended from the Node HTTP/HTTPs API) called <strong>handlers</strong> when assigned a specific <strong>route</strong>.</li>
+					<li>Therefore, Express middleware are responsible for manipulating these objects, performing some specific action (accessing a database, etc.), sending a response to mark the end of a request cycle, or giving control to the subsequent middleware by calling next middleware.</li>
+					<li>Specific middleware handles a specific path and a specific HTTP method to which they have been <strong>routed</strong>.
+				</ul>
+                </div>
+
+                <div class=entry-div">
+                        <a href="2_applicationObj.html">Next: 2. Application Object</a>
+                </div>
+
+        </body>
+</html>
+
