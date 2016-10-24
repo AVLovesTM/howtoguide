@@ -1,0 +1,67 @@
+       <head>
+                <meta charset="UTF-8">
+                <link href="style.css" rel="stylesheet">
+                <title>3. Request Object</title>
+        </head>
+
+        <body>
+                <div>
+                        <h1 class="main-head">3. The <code>request</code> Object</h1>
+                </div>
+
+                <div class="entry-div">
+                        <h2 class="entry-head">Node HTTP/HTTPs API as a component of the Express Framework</h2>
+                        <h3>Node HTTP Module:</h3>
+                        	<ul class="entry">
+					<li>Node JS, by itself, is a relatively empty environment which a user can add many packages/modules to in order build a more interesting environment.</li>
+					<li>The Node environment with the HTTP API is a component of the Express Framework.</li>
+					<li>The HTTP API has Server <code>request</code> object and a Server <code>response</code> object. The Server <code>request</code> object is described next.</li>
+					<li>The Server <code>request</code> object is by convention written as, <code>req</code>.</li>
+				</ul>
+                        <h3>The <code>req</code> Object: </h3>                                              
+                        	<ul class="entry">
+					<li>The <code>req</code> object is a <strong>Readable Stream</strong>.</li>
+					<ul>
+						<li>A stream is "pipe": a <strong>one-way</strong> communication line, where the output of one source becomes the input for the other.</li>
+						<li>The <code>req</code> object is Readable Stream and therefore, enables one to read data from a source.</li>
+						<li>The way to for a destination to recieve input from a source Readable Stream, is to <strong>listen</strong> for input (a <strong>request</strong>.</li>
+						<li><strong>Listening</strong> can be in achieved (in Express) by using the <code>app.listen()</code> method to observe a port to a server and await incoming input requesting a path mounted to a route.</li>
+					<li>The <code>req</code> object is an extended object from the HTTP API and is <strong>accessible</strong> from the Express framework.</li>
+					</ul>
+				</ul>
+			<h3>Basic <code>req</code> Object Methods:</h3>
+				<ul class="entry">
+					<li><code>req.body()</code></li>
+						<ul>
+							<li>This method requires another middleware API called, body-parser.</li>
+							<li>This method contains the POSTed values from the client.</li>
+							<li>This method is useful for not only parsing the client request, but also to perform some action on the client request data itself.</li>
+						</ul>
+					<li><code>req.query.[queryParam]</code></li> 	
+						<ul>
+							<li>This method contains the query values of a GET request.</li>
+							<li><code>query</code> is an object that contains <strong>key</strong> properties that are associated with a given string value.</li>
+							<li><code>queryParam</code> <strong>key</strong> to key-value pair query of GET client request.</li>
+						</ul>
+					<li><code>req.route</code></li>
+						<ul>
+							<li>This method contains the details of the route responsible for handling the specific client request.</li>
+							<li>Among the details is the name of the middleware/handler function assigned to the request, the HTTP method and the path mounted to the route.</li>
+						</ul>
+				</ul>
+			<h3>More Methods: </h3>
+				<ul>
+					<li>The <code>req</code> object contains many more tools which can be found in the <a href="http://expressjs.com/en/4x/api.html#req">Official Express Documentation</a></li>
+				</ul>
+			<h3><code>req</code> Object in context:</h3>
+				<ul class="entry">
+					<li>The <code>req</code> object is extened from the Node HTTP/HTTPs API.</li>
+					<li>The <code>req</code> object itself is an API tool that provides functionality pertaining to a client request, this includes parsing the request data, performing some action on the request data all determined by the route handler.</li> 
+					<li>The <code>req</code> object is a Readable Stream (a one way communication pipe) that acts as the source of some input to another destination.</li>
+				</ul>
+                </div>
+
+                <div class=entry-div">
+                        <a href="http://localhost:3001/4_responseObj">Next: 4. Response Object</a>
+                </div>
+</body>

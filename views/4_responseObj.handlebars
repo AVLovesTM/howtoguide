@@ -1,0 +1,68 @@
+       <head>
+                <meta charset="UTF-8">
+                <link href="style.css" rel="stylesheet">
+                <title>4. The Response Object</title>
+        </head>
+
+        <body>
+                <div>
+                        <h1 class="main-head">3. The <code>response</code> Object</h1>
+                </div>
+
+                <div class="entry-div">
+                        <h2 class="entry-head">Node HTTP/HTTPs API as a component of the Express Framework</h2>
+                        <h3>Node HTTP Module:</h3>
+                        	<ul class="entry">
+					<li>The Node environment with the HTTP API is a component of the Express Framework.</li>
+					<li>The Server <code>response</code> object is by convention written as, <code>res</code>.</li>
+					<li>The <code>res</code> object is an extened object of the Node HTTP/HTTPs API and can be accessed by the Express framework.</li>
+				</ul>
+                        <h3>The <code>res</code> Object: </h3>                                              
+                        	<ul class="entry">
+					<li>The <code>res</code> object is a <strong>Writable Stream</strong>.</li>
+					<ul>
+						<li>A stream is "pipe": a <strong>one-way</strong> communication line, where the input of one source was derived from the output of another source.</li>
+						<li>The <code>res</code> object is Writable Stream and therefore, enables one to write data to a destination.</li>
+						<li>The way to for a source destination to recieve input from a Readable Stream, is to <strong>listen</strong> for input (a <strong>request</strong>.</li>
+						<li><strong>Listening</strong> can be in achieved (in Express) by listening for any incoming input to the server, and directing any calling request via a <strong>route handler</strong> which triggers a middleware/callback function which "writes" some response or performs some action in response.</li>
+					</ul>
+				</ul>
+			<h3>Basic <code>res</code> Object Methods:</h3>
+				<ul class="entry">
+					<li><code>res.download(path, [, filename] [, middleware])</code>d</li>
+						<ul>
+							<li>This method enables files to be transfered between the server and the client.</li>
+							<li>The <code>filename</code> is optional because the file located at the specified path is what is transferred.</li>
+							<li>An optional middleware/callback function can be utilized as well as a means of error handling or to perform some action dependent on a successful download.</li>
+						</ul>
+					<li><code>res.json([body])</code></li> 	
+						<ul>
+							<li>This method sends a JSON object to the client in response to a request.</li>
+							<li>This can be used if the client is expecting JSON formatting to parsing.</li>
+						</ul>
+					<li><code>res.rend(view, [, locals] [, middleware])</code></li>
+						<ul>
+							<li>This method is used to send the client a rendered HTML page.</li>
+							<li>The rendered HTML page may also contain local variables, perhaps based on the client request. This local variable parameter is optional.</li>
+							<li>This method has an optional middleware/callback function(s) which can send back its own contextual properties, perform some other action in conjunction with rendering a HTML page.</li>
+						</ul>
+				</ul>
+			<h3>More Methods: </h3>
+				<ul>
+					<li>The <code>app</code> object contains many more tools which can be found in the <a href="http://expressjs.com/en/4x/api.html#res">Official Express Documentation</a></li>
+				</ul>
+			<h3><code>res</code> Object in context:</h3>
+				<ul class="entry">
+					<li>The <code>res</code> object is an extended Node HTTP/HTTPs API object that can be accessed by the Express framework.</li>
+					<li>The <code>res</code> object is an Express API tool that can perform many actions such rendering HTML views to the client, combining the newly rendered HTML view with some contextual data, routing appropriate responses to client requests, creating a file transfer between the client and the server and more. </li>
+					<li>The <code>res</code> object is responsible to giving the client some feedback based on a request to a specific route.</li> 
+				</ul>
+                </div>
+
+                <div class=entry-div">
+                        <a href="http://localhost:3001/">Return Home</a>
+                </div>
+        </body>
+
+
+
