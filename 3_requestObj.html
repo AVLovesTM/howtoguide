@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+       <head>
+                <meta charset="UTF-8">
+                <link href="style.css" rel="stylesheet">
+                <title>How-To Guide For Express' API</title>
+        </head>
+
+        <body>
+                <div class="topmost-nav-bar">
+                        <a class="nav-link" href="howTo.html">Home</a>
+                        <a class="nav-link" href="1_general.html">1. General Info</a>
+                        <a class="nav-link" href="2_applicationObj.html">2. Application Object</a>
+                        <a class="nav-link" href="3_requestObj.html">3. Request Object</a>
+                        <a class="nav-link" href="4_responseObj.html">4. Response Object</a>
+                </div>
+
+                <div>
+                        <h1 class="main-head">3. The <code>request</code> Object</h1>
+                </div>
+
+                <div class="entry-div">
+                        <h2 class="entry-head">Node HTTP/HTTPs API as a component of the Express Framework</h2>
+                        <h3>Node HTTP Module:</h3>
+                        	<ul class="entry">
+					<li>Node JS, by itself, is a relatively empty environment which a user can add many packages/modules to in order build a more interesting environment.</li>
+					<li>The Node environment with the HTTP API is a component of the Express Framework.</li>
+					<li>The HTTP API has Server <code>request</code> object and a Server <code>response</code> object. The Server <code>request</code> object is described next.</li>
+					<li>The Server <code>request</code> object is by convention written as, <code>req</code>.</li>
+				</ul>
+                        <h3>The <code>req</code> Object: </h3>                                              
+                        	<ul class="entry">
+					<li>The <code>req</code> object is a <strong>Readable Stream</strong>.</li>
+					<ul>
+						<li>A stream is "pipe": a <strong>one-way</strong> communication line, where the output of one source becomes the input for the other.</li>
+						<li>The <code>req</code> object is Readable Stream and therefore, can only send its own output as an input to a destination source.</li>
+						<li>The way to for a source destination to recieve input from a Readable Stream, is to <strong>listen</strong> for input (a <strong>request</strong>.</li>
+						<li><strong>Listening</strong> is achieved by using the <code>app.listen()</code> object and directing any calling request via a <strong>route handler</strong>
+					</ul>
+				</ul>
+			<h3>Basic <code>app</code> Object Methods:</h3>
+				<ul class="entry">
+					<li><code>app.METHOD(path, middleware)</code>d</li>
+						<ul>
+							<li>This is a standard route handler: METHOD = HTTP method; path = URL of desired resource; middleware = callback function applied to METHOD and path.</li>
+							<li>Multiple middleware callback functions are allowed.</li>
+							<li><code>app.all()</code> is a route handler that is called for all HTTP methods, therefore, it is called on all client requests.</li>
+						</ul>
+					<li><code>app.engine(extension, callback)</code></li> 	
+						<ul>
+							<li>This method saves a template engine to be used for a given file extension with the Express Application.</li>
+							<li>If you are using a template engine exported as a module, store the module in a variable and from the module call the appropriate callback method intended to handle the given file extension.</li>
+						</ul>
+					<li><code>app.render(view, [localVariables], callback)</code></li>
+						<ul>
+							<li>This method is <strong>different</strong> from <code>res.render()</code> which I will describe in later sections.
+							<li><code>view</code> is the HTML page to render content to.</li>
+							<li><code>[localVariables]</code> is an optional object parameter that contains local variables that hold data to be rendered to said viwew.</li>
+							<li><code>callback</code> is a necessary function responsible for returning the newly rendered HTML view to client. <code>app.render()</code> <strong>cannot</strong> send the rendered HTML view to the client without the callback function. This is <strong>different</strong> from <code>res.render()</code> which has an <strong>optional</strong> callback parameter and is capable of sending a rendered HTML without the callback.</li> 
+						</ul>
+				</ul>
+			<h3>More Methods: </h3>
+				<ul>
+					<li>The <code>app</code> object contains many more tools which can be found in the <a href="http://expressjs.com/en/4x/api.html">Official Express Documentation</a></li>
+						<ul>
+							<li><code>app.route(path)</code> allows a user to designate a single <code>path</code> to multiple HTTP methods associated with optional middleware.</li>
+							<li>The point of this method is create a single route for (a single <code>app.route(path)</code> as opposed to several <code>app.get(...)</code>, <code>app.post(...)</code>, etc.) as a way to eliminate syntax errors.</li> 
+							<li><code>app.set(name, value)</code> gives some variable some value, for example, <code>app.set('port', 3000)</code> the variable <code>'port'</code> now contains the value 3000.</li>
+							<li><code>app.get(name)</code> returns the value of some variable that has been <strong>set</strong>, for example the <code>'port'</code>.</li>
+							<li><code>app.listen(port, [hostname], [callback])</code> <strong>associates/binds</strong> a port to the server and listens for any connections made on the port. When a client connects to the port, they are guided to the server's route handlers.</li>
+						</ul>
+				</ul>
+			<h3><code>app</code> Object in context:</h3>
+				<ul class="entry">
+					<li>The <code>app</code> object is an interface of the Express API where the implementation details are "hidden" or not necessary to understand in order to get expected behavior.</li>
+					<li>The <code>app</code> object is an Express API tool that can perform many actions such rendering HTML views to the client, routing appropriate responses to client requests, register template engines to specific file extensions and more. </li>
+					<li>The <code>app</code> object utilizes middleware as callback functions as a means to communicate between the client and the server.</li> 
+					<li>These middleware callback functions take response and request object parameters with which they can perform even more tasks. We will cover request objects in the next section.</li>
+				</ul>
+                </div>
+
+                <div class=entry-div">
+                        <a href="2_applicationObj.html">Next: 2. Application Object</a>
+                </div>
+
+        </body>
+</html>
+
+
+
